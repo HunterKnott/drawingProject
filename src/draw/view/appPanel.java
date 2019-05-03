@@ -4,6 +4,9 @@ import javax.swing.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 
 import draw.controller.DrawController;
 
@@ -20,6 +23,8 @@ public class AppPanel extends JPanel
 	private JButton violetButton;
 	private JButton mysteryButton;
 	
+	private JPanel colorPanel;
+	
 	public AppPanel(DrawController app)
 	{
 		super();
@@ -33,6 +38,8 @@ public class AppPanel extends JPanel
 		blueButton = new JButton("Blue");
 		violetButton = new JButton("Violet");
 		mysteryButton = new JButton("?");
+		
+		colorPanel = new JPanel(new GridLayout(0, 1));
 		
 		setupMenuPanels();
 		setupScrollPane();
