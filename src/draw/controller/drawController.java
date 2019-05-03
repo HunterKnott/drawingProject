@@ -1,6 +1,9 @@
 package draw.controller;
 
-public class drawController
+public class DrawController
 {
-	
+	public void start()
+	{
+		
+	}
 }

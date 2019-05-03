@@ -1,6 +1,6 @@
 package draw.controller;
 
-public class Runner
+public class DrawRunner
 {
 	public static void main(String [] args)
 	{

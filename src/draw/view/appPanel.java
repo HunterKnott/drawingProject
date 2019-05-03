@@ -1,5 +1,5 @@
 package draw.view;
 
-public class appPanel {
+public class AppPanel {
 
 }
