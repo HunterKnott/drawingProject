@@ -3,7 +3,7 @@ package draw.view;
 import javax.swing.JPanel;
 import draw.controller.DrawController;
 
-public class ArtPanel
+public class ArtPanel extends JPanel
 {
 	private DrawController app;
 	
