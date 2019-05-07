@@ -192,6 +192,14 @@ public class AppPanel extends JPanel
 			}
 		});
 		
+		blackButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent mouseClick)
+			{
+				
+			}
+		});
+		
 		mysteryButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent mouseClick)
@@ -236,6 +244,30 @@ public class AppPanel extends JPanel
 			}
 			
 			public void mouseMoved(MouseEvent e)
+			{
+				
+			}
+		});
+		
+		clearButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent mouseClick)
+			{
+				
+			}
+		});
+		
+		saveButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent mouseClick)
+			{
+				
+			}
+		});
+		
+		loadButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent mouseClick)
 			{
 				
 			}
