@@ -17,6 +17,7 @@ public class AppPanel extends JPanel
 	private JButton greenButton;
 	private JButton blueButton;
 	private JButton violetButton;
+	private JButton blackButton;
 	private JButton mysteryButton;
 	
 	private JButton clearButton;
@@ -35,6 +36,7 @@ public class AppPanel extends JPanel
 		super();
 		this.app = app;
 		this.canvas = new ArtPanel(app);
+		canvasPane = new JScrollPane();
 		//this.menuPanel = new JPanel(app);
 		this.panelLayout = new SpringLayout();
 		
@@ -44,6 +46,7 @@ public class AppPanel extends JPanel
 		greenButton = new JButton("Green");
 		blueButton = new JButton("Blue");
 		violetButton = new JButton("Violet");
+		blackButton = new JButton("Black");
 		mysteryButton = new JButton("?");
 		
 		clearButton = new JButton("Clear Panel");
@@ -63,7 +66,31 @@ public class AppPanel extends JPanel
 	
 	private void setupMenuPanels()
 	{
+		colorPanel.setPreferredSize(new Dimension(50, 700));
+		menuPanel.setPreferredSize(new Dimension(50, 700));
 		
+		redButton.setForeground(Color.RED);
+		blueButton.setForeground(Color.BLUE);
+		yellowButton.setForeground(Color.YELLOW);
+		greenButton.setForeground(Color.GREEN);
+		orangeButton.setForeground(Color.ORANGE);
+		violetButton.setForeground(new Color(75, 0, 130));
+		blackButton.setForeground(Color.BLACK);
+		mysteryButton.setForeground(Color.BLACK);
+		
+		colorPanel.add(redButton);
+		colorPanel.add(blueButton);
+		colorPanel.add(yellowButton);
+		colorPanel.add(greenButton);
+		colorPanel.add(orangeButton);
+		colorPanel.add(violetButton);
+		colorPanel.add(blackButton);
+		colorPanel.add(mysteryButton);
+		
+		menuPanel.add(widthSlider);
+		menuPanel.add(saveButton);
+		menuPanel.add(loadButton);
+		menuPanel.add(clearButton);
 	}
 	
 	private void setupSlider()
@@ -82,7 +109,9 @@ public class AppPanel extends JPanel
 	
 	private void setupScrollPane()
 	{
-		
+		canvasPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		canvasPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+		canvasPane.setViewportView(canvas);
 	}
 	
 	private void setupPanel()
@@ -98,7 +127,19 @@ public class AppPanel extends JPanel
 	
 	private void setupLayout()
 	{
+		panelLayout.putConstraint(SpringLayout.NORTH, colorPanel, 0, SpringLayout.NORTH, canvasPane);
+		panelLayout.putConstraint(SpringLayout.SOUTH, colorPanel, 0, SpringLayout.SOUTH, canvasPane);
+		panelLayout.putConstraint(SpringLayout.WEST, colorPanel, 50, SpringLayout.EAST, canvasPane);
+		panelLayout.putConstraint(SpringLayout.EAST, colorPanel, 0, SpringLayout.WEST, menuPanel);
 		
+		panelLayout.putConstraint(SpringLayout.WEST, menuPanel, 200, SpringLayout.EAST, canvasPane);
+		panelLayout.putConstraint(SpringLayout.SOUTH, menuPanel, 0, SpringLayout.SOUTH, canvasPane);
+		panelLayout.putConstraint(SpringLayout.EAST, menuPanel, -50, SpringLayout.EAST, this);
+		panelLayout.putConstraint(SpringLayout.NORTH, menuPanel, 0, SpringLayout.NORTH, canvasPane);
+		
+		panelLayout.putConstraint(SpringLayout.NORTH, canvasPane, 25, SpringLayout.NORTH, this);
+		panelLayout.putConstraint(SpringLayout.WEST, canvasPane, 50, SpringLayout.WEST, this);
+		panelLayout.putConstraint(SpringLayout.SOUTH, canvasPane, -50, SpringLayout.SOUTH, this);
 	}
 	
 	private void setupListeners()
