@@ -1,20 +1,16 @@
 package draw.view;
 
 import javax.swing.*;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
-
+import java.awt.*;
+import java.awt.event.*;
+import java.util.Hashtable;
 import draw.controller.DrawController;
 
 public class AppPanel extends JPanel
 {
 	private DrawController app;
+	private ArtPanel canvas;
 	private SpringLayout panelLayout;
-	
 	private JButton redButton;
 	private JButton orangeButton;
 	private JButton yellowButton;
@@ -22,8 +18,16 @@ public class AppPanel extends JPanel
 	private JButton blueButton;
 	private JButton violetButton;
 	private JButton mysteryButton;
-	
+	private JButton clearButton;
+	private JButton saveButton;
+	private JButton loadButton;
 	private JPanel colorPanel;
+	private JPanel menuPanel;
+	private JScrollPane canvasPane;
+	private JSlider widthSlider;
+	
+	private final int MINIMUM_LINE = 1;
+	private final int MAXIMUM_LINE = 25;
 	
 	public AppPanel(DrawController app)
 	{
@@ -39,9 +43,12 @@ public class AppPanel extends JPanel
 		violetButton = new JButton("Violet");
 		mysteryButton = new JButton("?");
 		
+		widthSlider = new JSlider(MINIMUM_LINE, MAXIMUM_LINE);
 		colorPanel = new JPanel(new GridLayout(0, 1));
+		menuPanel = new JPanel(new GridLayout(0, 1));
 		
 		setupMenuPanels();
+		setupSlider();
 		setupScrollPane();
 		setupPanel();
 		setupLayout();
@@ -49,6 +56,11 @@ public class AppPanel extends JPanel
 	}
 	
 	private void setupMenuPanels()
+	{
+		
+	}
+	
+	private void setupSlider()
 	{
 		
 	}
