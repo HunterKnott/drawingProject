@@ -18,6 +18,7 @@ public class AppPanel extends JPanel
 	private JButton blueButton;
 	private JButton violetButton;
 	private JButton mysteryButton;
+	
 	private JButton clearButton;
 	private JButton saveButton;
 	private JButton loadButton;
@@ -33,6 +34,8 @@ public class AppPanel extends JPanel
 	{
 		super();
 		this.app = app;
+		this.canvas = new ArtPanel(app);
+		//this.menuPanel = new JPanel(app);
 		this.panelLayout = new SpringLayout();
 		
 		redButton = new JButton("Red");
@@ -43,6 +46,9 @@ public class AppPanel extends JPanel
 		violetButton = new JButton("Violet");
 		mysteryButton = new JButton("?");
 		
+		clearButton = new JButton("Clear Panel");
+		saveButton = new JButton("Save Panel");
+		loadButton = new JButton("Load New Panel");
 		widthSlider = new JSlider(MINIMUM_LINE, MAXIMUM_LINE);
 		colorPanel = new JPanel(new GridLayout(0, 1));
 		menuPanel = new JPanel(new GridLayout(0, 1));
@@ -62,7 +68,16 @@ public class AppPanel extends JPanel
 	
 	private void setupSlider()
 	{
-		
+		Hashtable<Integer, JLabel> scaleLabels = new Hashtable<Integer, JLabel>();
+		scaleLabels.put(MINIMUM_LINE, new JLabel("<HTML>Small<BR>Line</HTML>"));
+		scaleLabels.put(MAXIMUM_LINE, new JLabel("<HTML>Large<BR>Line</HTML>"));
+		widthSlider.setLabelTable(scaleLabels);
+		widthSlider.setSnapToTicks(true);
+		widthSlider.setMajorTickSpacing(5);
+		widthSlider.setMinorTickSpacing(1);
+		widthSlider.setPaintTicks(true);
+		widthSlider.setPaintLabels(true);
+		widthSlider.setValue((MAXIMUM_LINE + MINIMUM_LINE) / 2);
 	}
 	
 	private void setupScrollPane()
