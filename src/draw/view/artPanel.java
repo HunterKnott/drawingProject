@@ -29,11 +29,22 @@ public class ArtPanel extends JPanel
 	{
 		super();
 		this.app = app;
+		this.currentCanvas = new BufferedImage(700, 700, BufferedImage.TYPE_INT_ARGB);
+		setupPanel();
+		resetPoint();
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		g.drawImage(currentCanvas, 0, 0, null);
 	}
 	
 	public void resetPoint()
 	{
-		
+		previousX = Integer.MIN_VALUE;
+		previousY = Integer.MIN_VALUE;
 	}
 	
 	public void clearImage()
