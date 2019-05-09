@@ -81,7 +81,7 @@ public class ArtPanel extends JPanel
 		repaint();
 	}
 	
-	/*public void saveImage()
+	public void saveImage()
 	{
 		try
 		{
@@ -102,7 +102,7 @@ public class ArtPanel extends JPanel
 		{
 			app.handleErrors(badChoice);
 		}
-	}*/
+	}
 	
 	private Color randomColor()
 	{

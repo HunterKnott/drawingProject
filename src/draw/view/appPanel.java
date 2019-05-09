@@ -148,7 +148,7 @@ public class AppPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent mouseClick)
 			{
-				
+				canvas.setCurrentColor("Red");
 			}
 		});
 		
@@ -156,7 +156,7 @@ public class AppPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent mouseClick)
 			{
-				
+				canvas.setCurrentColor("Orange");
 			}
 		});
 		
@@ -274,7 +274,7 @@ public class AppPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent mouseClick)
 			{
-				
+				canvas.loadImage();
 			}
 		});
 	}
