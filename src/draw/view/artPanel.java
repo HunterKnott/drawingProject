@@ -103,6 +103,11 @@ public class ArtPanel extends JPanel
 			app.handleErrors(badChoice);
 		}
 	}
+
+	public void loadImage()
+	{
+		
+	}
 	
 	private Color randomColor()
 	{
