@@ -81,7 +81,7 @@ public class ArtPanel extends JPanel
 		repaint();
 	}
 	
-	public void saveImage()
+	/*public void saveImage()
 	{
 		try
 		{
@@ -100,9 +100,9 @@ public class ArtPanel extends JPanel
 		}
 		catch(NullPointerException badChoice)
 		{
-			app.handleErrors(basChoice);
+			app.handleErrors(badChoice);
 		}
-	}
+	}*/
 	
 	private Color randomColor()
 	{
@@ -118,7 +118,7 @@ public class ArtPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setPreferredSize(new Dimension(700, 700));
-		this.setBackground(Color.WHITE);
+		this.setBackground(Color.BLACK);
 		this.currentColor = Color.RED;
 	}
 	
