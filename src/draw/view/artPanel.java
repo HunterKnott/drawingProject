@@ -72,6 +72,15 @@ public class ArtPanel extends JPanel
 		repaint();
 	}
 	
+	public void drawDot(int currentX, int currentY, int width)
+	{
+		Graphics2D current = currentCanvas.createGraphics();
+		current.setColor(currentColor);
+		current.setStroke(new BasicStroke(width));
+		current.drawOval(currentX, currentY, width, width);
+		repaint();
+	}
+	
 	private Color randomColor()
 	{
 		int red = (int)(Math.random() * 256);
