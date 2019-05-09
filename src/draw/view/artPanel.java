@@ -72,10 +72,57 @@ public class ArtPanel extends JPanel
 		repaint();
 	}
 	
+	private Color randomColor()
+	{
+		int red = (int)(Math.random() * 256);
+		int green = (int)(Math.random() * 256);
+		int blue = (int)(Math.random() * 256);
+		int alpha = (int)(Math.random() * 256);
+		
+		Color randomColor = new Color(red, green, blue, alpha);
+		return randomColor;
+	}
+	
 	private void setupPanel()
 	{
 		this.setPreferredSize(new Dimension(700, 700));
 		this.setBackground(Color.WHITE);
 		this.currentColor = Color.RED;
+	}
+	
+	public void setCurrentColor(String color)
+	{
+		if(color.equals("Red"))
+		{
+			currentColor = Color.RED;
+		}
+		else if(color.equals("Orange"))
+		{
+			currentColor = Color.ORANGE;
+		}
+		else if(color.equals("Yellow"))
+		{
+			currentColor = Color.YELLOW;
+		}
+		else if(color.equals("Green"))
+		{
+			currentColor = Color.GREEN;
+		}
+		else if(color.equals("Blue"))
+		{
+			currentColor = Color.BLUE;
+		}
+		else if(color.equals("Violet"))
+		{
+			currentColor = new Color(75, 0, 130);
+		}
+		else if(color.equals("Black"))
+		{
+			currentColor = Color.BLACK;
+		}
+		else
+		{
+			currentColor = randomColor();
+		}
 	}
 }
