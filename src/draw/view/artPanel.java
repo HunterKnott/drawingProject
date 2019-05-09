@@ -81,6 +81,29 @@ public class ArtPanel extends JPanel
 		repaint();
 	}
 	
+	public void saveImage()
+	{
+		try
+		{
+			JFileChooser saveDialog = new JFileChooser();
+			saveDialog.showSaveDialog(this);
+			String savePath = saveDialog.getSelectedFile().getPath();
+			if(!savePath.endsWith(".png"))
+			{
+				savePath += ".png";
+			}
+			ImageIO.write(currentCanvas, "PNG", new File(savePath));
+		}
+		catch(IOException error)
+		{
+			app.handleErrors(error);
+		}
+		catch(NullPointerException badChoice)
+		{
+			app.handleErrors(basChoice);
+		}
+	}
+	
 	private Color randomColor()
 	{
 		int red = (int)(Math.random() * 256);
