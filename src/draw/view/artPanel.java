@@ -49,11 +49,33 @@ public class ArtPanel extends JPanel
 	
 	public void clearImage()
 	{
-		
+		this.currentCanvas = new BufferedImage(700, 700, BufferedImage.TYPE_INT_ARGB);
+		this.setBackground(randomColor());
+		repaint();
 	}
 	
 	public void drawLine(int currentX, int currentY, int width)
 	{
-		
+		Graphics2D current = currentCanvas.createGraphics();
+		current.setColor(currentColor);
+		current.setStroke(new BasicStroke(width));
+		if(previousX == Integer.MIN_VALUE)
+		{
+			current.drawLine(currentX, currentY, currentX, currentY);
+		}
+		else
+		{
+			current.drawLine(previousX, previousY, currentX, currentY);
+		}
+		previousX = currentX;
+		previousY = currentY;
+		repaint();
+	}
+	
+	private void setupPanel()
+	{
+		this.setPreferredSize(new Dimension(700, 700));
+		this.setBackground(Color.WHITE);
+		this.currentColor = Color.RED;
 	}
 }
